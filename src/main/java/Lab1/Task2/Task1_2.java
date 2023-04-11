@@ -1,28 +1,28 @@
 package Lab1.Task2;
 
-import inputData.inputData;
 import jfree__.simpleGui;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Task1_2 extends inputData {
-    private final int k = (int) Math.round(1 + 3.32 * Math.log10(row_sort.size()));
-    private final double h = ((double) (row_sort.get(row_sort.size() - 1) - row_sort.get(0)) / k);
-
+public class Task1_2 {
+    protected List<Float> row_sort = new ArrayList<>();
     protected List<Double[]>  addValuesData() {
 
         List<Double[]> data = new ArrayList<>();
+        int k = (int) Math.round(1 + 3.32 * Math.log10(row_sort.size()));
+        double h = ((double) (row_sort.get(row_sort.size() - 1) - row_sort.get(0)) / k);
         //Object[][] data = new Object[k][8];
-        DecimalFormat decimalFormat = new DecimalFormat("0.0000");
+    //   DecimalFormat decimalFormat = new DecimalFormat("0.0000");
         double minRange = row_sort.get(0);
         double frequency = 0.0;
         double cumulativeFrequency = 0.0;
-        double relativeFrequency = 0.0;
+        double relativeFrequency;
         double cumulativeRelativeFrequency = 0.0;
-        int j = 0;
+        //int j = 0;
         for (int i = 0; i < row_sort.size(); ) {
 
             while (i < row_sort.size()) {
@@ -45,7 +45,7 @@ public class Task1_2 extends inputData {
             cumulativeRelativeFrequency += relativeFrequency;
 //            data[j][7] = decimalFormat.format(cumulativeRelativeFrequency);
             data.add(new Double[]{minRange,(minRange + h),(((minRange * 2) + h) / 2),frequency,cumulativeFrequency,relativeFrequency,cumulativeRelativeFrequency});
-            j++;
+            //j++;
             minRange += h;
             frequency = 0.0;
         }
@@ -76,9 +76,10 @@ public class Task1_2 extends inputData {
         }
 
         simpleGui.scrollDefault(new JTable(TModel), frame, 900, 150);
-
     }
-
+    public Task1_2(List<Float> row){
+       this.row_sort.addAll(row);
+    }
     public void Task2() {
         Table();
     }

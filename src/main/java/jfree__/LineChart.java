@@ -12,8 +12,9 @@ public class LineChart extends ApplicationFrame {
 
     public static void showChart(ApplicationFrame chart) {
         chart.pack( );
-        UIUtils RefineryUtilities = null;
-        RefineryUtilities.centerFrameOnScreen( chart );
+       // UIUtils RefineryUtilities = null;
+        chart.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        UIUtils.centerFrameOnScreen( chart );
         chart.setVisible( true );
     }
     public LineChart(DefaultCategoryDataset dataset,

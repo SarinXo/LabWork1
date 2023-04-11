@@ -6,10 +6,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public  class inputData {
-    protected List<Float> row_sort = new ArrayList<>();
-
-    public inputData() {
+public class inputData {
+    public List<Float> input() {
         List<Float> row;
         readFile read = new readFile();
         File file = new File("src/row");
@@ -18,8 +16,9 @@ public  class inputData {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-        row_sort.addAll(row);
+        List<Float> row_sort = new ArrayList<>(row);
         row_sort.sort(Comparator.naturalOrder());
+        return row_sort;
     }
 
 }

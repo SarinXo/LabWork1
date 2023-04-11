@@ -1,15 +1,19 @@
 package Lab1.Task1;
+
 import jfree__.simpleGui;
-import inputData.inputData;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class Task1_1 extends inputData {
+public class Task1_1  {
+    private final List<Float> row_sort = new ArrayList<>();
 
     public Map<Float, Long> rowStat;
     private final JFrame frame = simpleGui.frameDefault("Задание №1", 600, 450);
@@ -48,7 +52,8 @@ public class Task1_1 extends inputData {
     }
 
 
-    public void Task_1() {
+    public Task1_1(List<Float> row) {
+        row_sort.addAll(row);
         Table1();
         Table2();
         Table3();

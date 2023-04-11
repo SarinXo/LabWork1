@@ -5,11 +5,11 @@ import java.awt.*;
 
 public class simpleGui extends JFrame {
 
-    public static JFrame frameDefault(String nametable, int width, int height) {
-        JFrame frame = new JFrame(nametable);
+    public static JFrame frameDefault(String nameTable, int width, int height) {
+        JFrame frame = new JFrame(nameTable);
         frame.getContentPane().setLayout(new FlowLayout());
         frame.setSize(width, height);
-        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         return frame;
     }
 
